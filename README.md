@@ -42,7 +42,7 @@ Documentation is available in HTML format, see [Checkstyle checks][checks-docs].
 - [Licensing](#licensing)
 
 ## Quick Start
-
+ 
 - Download our [Latest Release](https://github.com/checkstyle/checkstyle/releases/) from GitHub
   or add Checkstyle to your build from [Maven Central][maven-central].
 - Read our Documentation for [usage](https://checkstyle.org/cmdline.html)
