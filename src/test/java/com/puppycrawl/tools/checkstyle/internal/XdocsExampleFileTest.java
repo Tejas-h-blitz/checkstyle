@@ -99,32 +99,13 @@ public class XdocsExampleFileTest {
      * <a href="https://github.com/checkstyle/checkstyle/issues/21072">...</a>
      */
     private static final Set<String> SUPPRESSED_UNIQUENESS_CHECK_MODULES = Set.of(
-        "checks/annotation/annotationlocation/",
         "checks/coding/hiddenfield/",
-        "checks/coding/returncount/",
-        "checks/imports/avoidstarimport/",
         "checks/javadoc/javadocvariable/",
         "checks/javadoc/missingjavadoctype/",
         "checks/naming/illegalidentifiername/",
-        "checks/naming/patternvariablename/",
         "checks/outertypefilename/",
         "checks/regexp/regexpmultiline/",
-        "checks/regexp/regexpsingleline/",
-        "checks/trailingcomment/",
-        "checks/whitespace/filetabcharacter/"
-    );
-
-    /**
-     * Modules whose numerically-first example (Example1) is not the default-config
-     * example, temporarily suppressed pending reordering or renumbering of examples.
-     *
-     * <p>Until: <a href="https://github.com/checkstyle/checkstyle/issues/21207">...</a>
-     */
-    private static final Set<String> MODULES_WITHOUT_DEFAULT_FIRST_EXAMPLE = Set.of(
-        "checks/coding/illegaltokentext",
-        "checks/naming/localfinalvariablename",
-        "checks/sizes/methodlength",
-        "checks/translation"
+        "checks/regexp/regexpsingleline/"
     );
 
     @Test
@@ -337,7 +318,7 @@ public class XdocsExampleFileTest {
 
     private static void scanFile(Path testFile, Path examplesResources, Path examplesNonCompilable,
             List<String> failures)
-            throws IOException {
+                    throws IOException {
         final String testContent = Files.readString(testFile);
 
         final String className = Path.of("src/xdocs-examples/java").toAbsolutePath()
@@ -362,7 +343,8 @@ public class XdocsExampleFileTest {
     }
 
     private static void scanExampleDirectory(Path exampleDir, String testContent,
-            Path testFile, List<String> failures) throws IOException {
+            Path testFile, List<String> failures)
+                    throws IOException {
         if (Files.exists(exampleDir) && Files.isDirectory(exampleDir)) {
             try (Stream<Path> exampleFiles = Files.list(exampleDir)) {
                 exampleFiles
@@ -384,7 +366,8 @@ public class XdocsExampleFileTest {
     }
 
     private static void checkUniquenessForModule(Path testFile, Path examplesResources,
-             Path examplesNonCompilable, List<String> failures) throws IOException {
+            Path examplesNonCompilable, List<String> failures)
+                    throws IOException {
         final String className = Path.of("src/xdocs-examples/java").toAbsolutePath()
                 .relativize(testFile.toAbsolutePath()).toString()
                 .replace(File.separator, ".")
@@ -426,7 +409,8 @@ public class XdocsExampleFileTest {
     }
 
     private static Map<String, List<String>> collectSignatures(Path exampleDir,
-               boolean suppressed, List<String> failures) throws IOException {
+                boolean suppressed, List<String> failures)
+                        throws IOException {
         final Map<String, List<String>> signatureToExamples = new HashMap<>();
 
         try (Stream<Path> exampleFiles = Files.list(exampleDir)) {
@@ -501,7 +485,7 @@ public class XdocsExampleFileTest {
         try {
             final TestInputConfiguration parsed =
                     InlineConfigParser.parse(exampleFile.toString());
-            final List<TestInputViolation> violations = parsed.getViolations();
+            final List<TestInputViolation> violations = parsed.violations();
 
             final boolean hasUnspecifiedMessage = violations.stream()
                     .anyMatch(violation -> violation.message() == null);
@@ -569,8 +553,11 @@ public class XdocsExampleFileTest {
             }
         }
 
-        int[] result = null;
-        if (startLine != -1 && endLine != -1) {
+        final int[] result;
+        if (startLine == -1 && endLine == -1) {
+            result = new int[0];
+        }
+        else {
             result = new int[] {startLine, endLine};
         }
         return result;
@@ -594,12 +581,11 @@ public class XdocsExampleFileTest {
 
             final String moduleName = XdocsExamplesAstConsistencyTest
                 .toModuleClassSimpleName(dir.getFileName().toString());
-            final String relativePath = XdocsExamplesAstConsistencyTest.XDOCS_ROOT
-                .relativize(dir).toString().replace(File.separatorChar, '/');
 
             if (moduleName != null && !examples.isEmpty()
-                && !XdocsExamplesAstConsistencyTest.isModuleWithNoProperties(examples)
-                && !MODULES_WITHOUT_DEFAULT_FIRST_EXAMPLE.contains(relativePath)) {
+                && !XdocsExamplesAstConsistencyTest.isModuleWithNoProperties(examples)) {
+                final String relativePath = XdocsExamplesAstConsistencyTest.XDOCS_ROOT
+                    .relativize(dir).toString().replace(File.separatorChar, '/');
                 final String xmlModuleName =
                     XdocsExamplesAstConsistencyTest.stripCheckSuffix(moduleName);
                 checkDefaultConfigExampleOrder(examples, xmlModuleName,
@@ -624,7 +610,7 @@ public class XdocsExampleFileTest {
      */
     private static void checkDefaultConfigExampleOrder(List<Path> examples,
             String xmlModuleName, String relativePath, List<String> violations)
-            throws IOException, ParserConfigurationException, SAXException {
+                    throws IOException, ParserConfigurationException, SAXException {
         final Path firstExample = examples.stream()
             .filter(example -> {
                 return example.getFileName().toString()

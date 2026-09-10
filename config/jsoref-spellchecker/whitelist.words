@@ -27,6 +27,8 @@ amd
 androidx
 annotateddeclarationvisibility
 annotationlocation
+annotationnojavadoc
+annotationnonjavadoc
 annotationonsameline
 annotationusestyle
 annotationutil
@@ -84,6 +86,7 @@ avoiddoublebraceinitialization
 avoidescapedunicodecharacters
 avoidinlineconditionals
 avoidlatin
+avoidmoduleimport
 avoidnestedblocks
 avoidnoargumentsuperconstructorcall
 avoidstarimport
@@ -129,6 +132,7 @@ breadcrumbs
 BSR
 Bsubscribe
 BTest
+btn
 btnfrs
 buf
 bugdatabase
@@ -149,7 +153,7 @@ catchparametername
 cba
 cbeaff
 CComments
-cdata
+CDATA
 cde
 Cdi
 Cfg
@@ -176,7 +180,6 @@ chmod
 chr
 ci
 cimg
-Cinit
 circleci
 cirrusci
 classannotations
@@ -192,7 +195,7 @@ clazz
 clemens
 Clickable
 Cloneable
-clss
+cls
 cmdline
 cmp
 cmt
@@ -200,7 +203,7 @@ CNAME
 Cnt
 cobertura
 codacy
-codebases
+codebase
 codeclimate
 codeconventions
 codecov
@@ -243,6 +246,7 @@ css
 cstyle
 csv
 csvfilterelement
+cta
 ctc
 ctor
 ctx
@@ -320,12 +324,12 @@ Djacoco
 Djapicmp
 Djdepend
 Dlinkcheck
+Dlychee
 DMail
 Dmaven
 Dmdep
 dnd
 Dnew
-doccheck
 doccomments
 docdefaultconstr
 Dockter
@@ -360,7 +364,6 @@ Duser
 dv
 Dversion
 Dxml
-eb
 EBFF
 EBNF
 ecj
@@ -393,7 +396,6 @@ ent
 enum
 eol
 eot
-epl
 equalsavoidnull
 equalshashcode
 equalsverifier
@@ -404,6 +406,7 @@ esac
 Eslint
 esslingen
 etsy
+euo
 ev
 Evt
 exceptionoverrides
@@ -412,6 +415,7 @@ executablestatementcount
 Exif
 explicitinitialization
 expr
+expressionoverblocklambda
 Externalizable
 fallsthrough
 fallthrough
@@ -454,6 +458,7 @@ fileorganization
 filepath
 fileset
 filesetcheck
+filesgenerator
 filestructure
 filesystem
 filetab
@@ -467,17 +472,17 @@ finalparameters
 findbugs
 Findentation
 findstr
-firefox
 firstsentence
 FIXME
 Fjava
 Fjavadoc
 fluido
+fluxzero
 Fmain
 Fmessages
 Fmetrics
 Fmodifier
-FModule
+fmodule
 Fnaming
 Fopenjdk
 forbiddenapis
@@ -504,7 +509,6 @@ funmodifiablecollection
 Fwhitespace
 Fx
 Fxq
-gav
 Gdrox
 generalform
 genericwhitespace
@@ -516,6 +520,7 @@ gitattributes
 github
 githubusercontent
 Gjs
+GLIBC
 globbing
 GMetrics
 gnupg
@@ -554,7 +559,6 @@ Haml
 Hardcoded
 hashcode
 hashtable
-HASHTAG
 hazelcast
 hbase
 hcoles
@@ -617,6 +621,9 @@ importnolinewrap
 importorder
 importrule
 imprt
+inappropriatejavadocblocktagsonfield
+inappropriatejavadocblocktagsonpackage
+inappropriatejavadocblocktagsontype
 Incompatabilities
 indentcontinuationlines
 Inet
@@ -624,6 +631,7 @@ infinispan
 initializedfields
 inlineconfigparser
 Inlined
+inlinelinks
 inlinetags
 innerassignment
 Innerclass
@@ -663,16 +671,22 @@ javadoc
 javadocblocktaglocation
 javadoccontentlocation
 javadocdetailnodeparser
+javadocendcommentdelimiter
 javadocleadingasteriskalign
+javadoclinkfirstoccurrence
+javadoclinkwellknownapi
 javadocmethod
 javadocmissingleadingasterisk
 javadocmissingwhitespaceafterasterisk
+javadocnoerrorinthrowstag
 javadocpackage
 javadocparagraph
+javadocparamorder
 javadocpropertiesgenerator
 javadocregexp
 javadoctagcontinuationindentation
 javadoctags
+javadocthrowsorder
 javadoctype
 javadocutil
 javadocvariable
@@ -705,7 +719,6 @@ jdt
 jedit
 jenkins
 jep
-jeremymanson
 jessesquires
 jetbrains
 JFile
@@ -768,8 +781,9 @@ keyname
 keyscan
 konstantinos
 Kordas
-Kotlin
+kotlin
 Kp
+kts
 lambdabodylength
 lambdaparametername
 LBRACE
@@ -864,7 +878,6 @@ mixin
 mkdir
 MKo
 mkordas
-MLINKCHECK
 MMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMM
 moby
@@ -873,6 +886,10 @@ mockito
 Modello
 modifiedcontrolvariable
 modifierorder
+moduledeclaration
+moduledirectiveorder
+moduleimportorder
+moduleinfo
 Mohnen
 mojohaus
 moks
@@ -881,16 +898,19 @@ moradan
 mozilla
 MRELEASE
 mstudman
-MTAGLIST
 multicharacter
 multifileregexpheader
 multiline
 multilinecommentleadingasteriskpresence
 Multimap
+multipleannotations
+multipleannotationsnojavadoc
 multiplestringliterals
+multipletags
 multiplevariabledeclarations
 Multiset
 multithreading
+musl
 mutableexception
 MVC
 mvn
@@ -951,6 +971,7 @@ noinspection
 noinspectionreason
 nojavadoc
 nolinewrap
+nomoduleimports
 nonascii
 noncompilable
 nonconstantfieldnames
@@ -1032,7 +1053,6 @@ Osgi
 oss
 OSX
 otechie
-otherinputfolder
 outertypefilename
 outertypenumber
 overloadmethodsdeclarationorder
@@ -1076,7 +1096,6 @@ patreon
 patternvariableassignment
 patternvariablename
 Paulicke
-paypal
 pbludov
 Pcheckstyle
 pdf
@@ -1098,6 +1117,7 @@ pkgextra
 pkx
 PLHM
 plugin
+Plychee
 PMB
 pmd
 pmdruleset
@@ -1110,6 +1130,7 @@ POJO
 Popup
 Postgresql
 prebuilts
+prefercodeorsnippetjavadocinlinetag
 preferliteraljavadocinlinetag
 prefs
 PRESIZE
@@ -1138,6 +1159,7 @@ qaplug
 qodana
 qualitygates
 Qube
+quebra
 qw
 qwe
 QX
@@ -1178,9 +1200,9 @@ reportyml
 requiredtags
 requireemptylinebeforeblocktaggroup
 requirethis
+Rescanning
 resourceleak
 Rethrown
-Rethrows
 returncount
 returnsreceiver
 returntag
@@ -1192,6 +1214,7 @@ rhs
 rhysd
 rickgiles
 rightcurly
+rivinvaihdon
 Rl
 Rli
 rnveach
@@ -1247,6 +1270,7 @@ Ruslan
 rw
 rx
 sabaka
+salto
 Saludo
 Sameline
 sariflogger
@@ -1308,6 +1332,7 @@ sonarcloud
 sonarqube
 sonarsource
 sonatype
+sonu
 Sopov
 sourcefile
 sourceforge
@@ -1399,7 +1424,6 @@ technotes
 temurin
 testattr
 Testik
-testinputfolder
 testmodules
 testname
 textblock
@@ -1422,7 +1446,6 @@ timeline
 timezone
 TKN
 tmp
-tmpdir
 tngtech
 toc
 todo
@@ -1431,9 +1454,9 @@ tokenization
 tokenizer
 tokentype
 tolist
+toml
 Toolbar
 toolongpackagetotestcoveragegooglesjavastylerule
-tooltips
 TOSTRING
 Touchscreen
 tpc
@@ -1476,6 +1499,7 @@ uninterned
 uniq
 uniqueproperties
 Unitless
+unnecessaryfullyqualifiedtype
 unnecessarynullcheckwithinstanceof
 unnecessaryparentheses
 unnecessarysemicolonafteroutertypedeclaration
@@ -1493,12 +1517,15 @@ unusedcatchparametershouldbeunnamed
 unusedimports
 unusedlambdaparametershouldbeunnamed
 unusedlocalvariable
+Unusedprivate
+unusedprivatefield
 unusedtryresourceshouldbeunnamed
 uppercased
 upperell
 urandom
 uri
 url
+usecase
 useenhancedswitch
 userguide
 username
@@ -1554,6 +1581,7 @@ Wifi
 wiki
 wikipedia
 wiktionary
+withfile
 withgoogle
 wj
 wnd
@@ -1639,6 +1667,7 @@ Yoyodyne
 yq
 yyyy
 Zbbh
+Zeilenumbruch
 zf
 zh
 ZSH
